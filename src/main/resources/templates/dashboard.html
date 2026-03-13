@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebNest Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f4f6f8;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 40px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-8px);
+        }
+        .card a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+	<!-- Navbar -->
+	<div style="background:#1e1e2f; padding:15px; color:white;">
+	    <h2 style="margin:0;">🌐 WebNest Dashboard</h2>
+	</div>
+
+	
+	
+	<div style="padding:20px; text-align:center;">
+	    <form action="/command" method="post">
+	        <input 
+	            type="text" 
+	            name="command" 
+	            placeholder="Type a command like: open youtube"
+	            style="width:60%; padding:12px; font-size:16px; border-radius:8px;"
+	            required
+	        >
+	        <br><br>
+	        <button 
+	            type="submit"
+	            style="padding:10px 25px; font-size:16px; background:#1e1e2f; color:white; border:none; border-radius:8px; cursor:pointer;"
+	        >
+	            🚀 Execute
+	        </button>
+	    </form>
+	</div>
+	<span th:text="${aiMessage}"></span>
+
+	
+	
+	
+	
+	
+
+
+<div style="margin:20px; padding:15px; background:#f0f4f8; border-radius:10px;">
+	    <h3>📊 Your Activity</h3>
+
+	    <p>▶️ YouTube visits: <b th:text="${youtubeCount != null ? youtubeCount : 0}"></b></p>
+	    <p>📸 Instagram visits: <b th:text="${instagramCount != null ? instagramCount : 0}"></b></p>
+	    <p>📘 Facebook visits: <b th:text="${facebookCount != null ? facebookCount : 0}"></b></p>
+	    <p>🤖 Chatbot visits: <b th:text="${chatbotCount != null ? chatbotCount : 0}"></b></p>
+	</div>
+
+<div class="container">
+
+    <div class="card"><a href="/youtube">▶️ YouTube</a></div>
+    <div class="card"><a href="/facebook">📘 Facebook</a></div>
+    <div class="card"><a href="/whatsapp">💬 WhatsApp</a></div>
+    <div class="card"><a href="/instagram">📸 Instagram</a></div>
+    <div class="card"><a href="/chatbot">🤖 AI Chatbot</a></div>
+
+</div>
+
+</body>
+</html>
